@@ -32,5 +32,14 @@ imgImagingrary_invers = imgMagnitute*np.sin(imgPhysical)
 imgFourier_inverse =  imgReal_invers + imgImagingrary_invers*1j
 
 imgFourier_inverse = np.fft.ifftshift(imgFourier_inverse)
-imgImagingrary_invers = np.fft.ifftshift(imgFourier_inverse)
+img_invers = np.fft.ifftshift(imgFourier_inverse)
 
+imgImagingrary_invers = np.real(img_invers)
+img_invers = img_invers.astype(np.uint8)
+cv.imwrite("input.png",img)
+cv.imwrite("output.png",img_invers)
+
+## displya magnitude
+imgMagnitute = np.log(1+imgMagnitute)
+imgMagnitute = cv.normalize(imgMagnitute, None, 0, 255, cv.NORM_MINMAX, cv.CV_8U)
+cv.imwrite("magnitude_output.png",imgMagnitute)
