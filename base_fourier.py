@@ -18,7 +18,7 @@ imgImagingrary = np.imag(imgF)
 imgMagnitute = np.sqrt(imgReal**2 + imgImagingrary**2)
 imgPhysical = np.arctan2(imgImagingrary , imgReal)
 
-cv.imwrite("imgFourier.png",imgFourier)
+
 cv.imwrite("imgReal.png",imgReal)
 cv.imwrite("imgIMagingary.png",imgImagingrary)
 cv.imwrite("imgMagnitute.png",imgMagnitute)
